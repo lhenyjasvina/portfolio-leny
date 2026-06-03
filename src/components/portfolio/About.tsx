@@ -32,9 +32,9 @@ export function About() {
                 </p>
               </div>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="rounded-2xl border border-border bg-card p-7 shadow-sm">
+          <Reveal delay={200} className="rounded-2xl border border-border bg-card p-7 shadow-sm transition-shadow hover:shadow-md">
             <div className="flex items-start gap-4">
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent text-accent-foreground">
                 <FileText className="h-5 w-5" />
@@ -63,7 +63,7 @@ export function About() {
                 </div>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>
