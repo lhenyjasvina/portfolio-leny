@@ -3,6 +3,7 @@ import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { SectionHeader } from "./About";
+import { Reveal } from "./Reveal";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -46,10 +47,12 @@ export function Contact() {
   return (
     <section id="contact" className="border-b border-border/60">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
-        <SectionHeader eyebrow="Contact" title="Let's get in touch" />
+        <Reveal>
+          <SectionHeader eyebrow="Contact" title="Let's get in touch" />
+        </Reveal>
 
         <div className="mt-12 grid gap-10 md:grid-cols-[1fr_1.3fr]">
-          <div className="space-y-4">
+          <Reveal delay={100} className="space-y-4">
             <p className="text-sm leading-relaxed text-muted-foreground">
               Open to roles in data management, financial administration, and IT
               support. Feel free to reach out via any channel below.
@@ -67,8 +70,9 @@ export function Contact() {
               href="tel:+6285290361510"
             />
             <ContactItem icon={MapPin} label="Location" value="Urung, Pinrang" />
-          </div>
+          </Reveal>
 
+          <Reveal delay={200}>
           <form
             onSubmit={onSubmit}
             noValidate
@@ -116,6 +120,7 @@ export function Contact() {
               {submitting ? "Sending..." : "Send message"} <Send className="h-4 w-4" />
             </button>
           </form>
+          </Reveal>
         </div>
       </div>
     </section>
