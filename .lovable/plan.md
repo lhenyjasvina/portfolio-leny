@@ -1,54 +1,40 @@
+# Add Work/Projects Section
 
 ## Goal
-A single-page, responsive portfolio with anchor navigation between sections. Professional palette: deep navy, white, subtle gray, with a refined accent. Restrained motion, strong typography hierarchy, highly scannable.
+Add a polished, scannable Work/Projects section to the portfolio featuring 2–4 project cards, each linking to its own detail page.
 
-## Design Direction
-- Palette: deep navy `#0F1B3D` primary, white background, soft gray surfaces, muted slate text, single subtle accent (cool steel blue) for links/badges.
-- Typography: "Instrument Serif" for display headings paired with "Inter" for body — gives an editorial-yet-technical feel, professional and not generic.
-- Layout: generous whitespace, single-column with content max-width ~1100px, clear section dividers, sticky minimal top nav.
-- Motion: only subtle fade-in on scroll for sections, hover states on cards/buttons. No parallax, no heavy animations.
+## Plan
 
-## Sections (single page, `src/routes/index.tsx`)
+### 1. Create the Projects list component
+- **File:** `src/components/portfolio/Projects.tsx`
+- A new section card following the existing design language (rounded-2xl, border, shadow-sm, SectionHeader).
+- Display 3 featured projects in a responsive grid (1 col mobile → 2 cols tablet → 3 cols desktop):
+  1. **Location-Based Attendance Application** (thesis) — web-based attendance using Geolocation API for SMAN 5 Pinrang.
+  2. **Operational Data Management System** — data processing & reporting workflows at Puskesmas Suppa.
+  3. **Mass Payment Digital Administration** — digital SPPD & travel expense management at Kelurahan Galung Maloang.
+- Each card shows: project title, 1-line description, tech tags, and a "View details →" link.
 
-1. **Top Nav** — Name/logo left, anchor links right (About, Experience, Skills, Contact). Mobile: condensed.
+### 2. Create individual project detail routes
+- **Files:** `src/routes/projects.$projectId.tsx` and `src/routes/projects.index.tsx`
+- `projects.$projectId.tsx`: Dynamic route that renders full project detail based on the `projectId` param.
+  - Includes: hero title, detailed description, tech stack tags, key features bullet list, outcome/results, and a "Back to projects" link.
+- `projects.index.tsx`: A dedicated `/projects` landing page that lists all projects with the same cards (useful for direct navigation and SEO).
+- Both pages use the same project data array for consistency.
 
-2. **Hero**
-   - Two-column on desktop, stacked on mobile.
-   - Left: name (display serif), role subtitle, short bio, "View Work" (primary) + "Contact Me" (outline) CTAs.
-   - Right: circular/rounded-square photo placeholder (neutral silhouette avatar generated as asset — clearly a placeholder so user can swap in real photo).
+### 3. Wire navigation
+- **File:** `src/components/portfolio/Nav.tsx`
+- Add a `{ href: "#projects", label: "Projects" }` link in the anchor list (between Experience and Skills).
+- Ensure mobile/responsive behavior remains intact.
 
-3. **About & Education**
-   - Short intro paragraph.
-   - Education card: Degree, university, GPA badge.
-   - Thesis highlight card: title + description of geolocation/web-based attendance system.
+### 4. Integrate into the home page
+- **File:** `src/routes/index.tsx`
+- Insert `<Projects />` between `<Experience />` and `<Skills />`.
+- The section uses `id="projects"` for anchor scrolling.
 
-4. **Work Experience**
-   - Vertical timeline (left rail with dots) of two entries:
-     - Operator Bendahara — Puskesmas Suppa — Mar 2025–Present.
-     - Internship — Kantor Kelurahan Galung Maloang — Sep–Oct 2023.
-   - Each entry: role, organization, dates, bulleted responsibilities.
-
-5. **Skills & Certifications**
-   - Three categorized blocks (Tech & Web / Data & Office / Soft Skills) shown as badge grids.
-   - Certification highlight card for VSGA — Operator Komputer Madya.
-
-6. **Contact**
-   - Left: email, phone, location with icons (Lucide).
-   - Right: functional contact form (name, email, message) with Zod validation; on submit shows a success toast via sonner (no backend wired — client-only acknowledgement, mentions email as fallback).
-
-7. **Footer** — name, © year, simple.
-
-## Technical Details
-- Stack: existing TanStack Start + Tailwind v4 + shadcn/ui.
-- Update `src/styles.css` `:root` tokens to the navy/white/gray palette (oklch), keep `@theme inline` mapping intact. Add Google Fonts via `<link>` in `__root.tsx` head.
-- Update `src/routes/index.tsx` head meta (title, description, og tags) for SEO. Single H1 in hero.
-- Build small components under `src/components/portfolio/`: `Nav.tsx`, `Hero.tsx`, `About.tsx`, `Experience.tsx`, `Skills.tsx`, `Contact.tsx`, `Footer.tsx`.
-- Use shadcn `button`, `card`, `badge`, `input`, `textarea`, `label`, `sonner` (Toaster added in root).
-- Contact form: client-side Zod validation, no server function (per "UI only").
-- Generate one placeholder profile image asset (neutral, professional avatar illustration) into `src/assets/`.
-- Accessibility: semantic landmarks (`<header>`, `<main>`, `<section aria-labelledby>`, `<footer>`), alt text, focus states.
-- Responsive: mobile-first; verified at 390px and desktop widths.
+### 5. Add route tree entries
+- The TanStack Router plugin auto-generates `routeTree.gen.ts` from new route files, so no manual edits are needed there.
 
 ## Out of Scope
-- No backend, no auth, no database — contact form is client-only.
-- No animations beyond subtle fade/hover.
+- No backend / database — project data is a static const array shared between components.
+- No external demos or live links assumed; detail pages are self-contained.
+- No heavy animations; keep the existing subtle, professional feel.
