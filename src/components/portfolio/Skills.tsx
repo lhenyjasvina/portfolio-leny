@@ -1,5 +1,6 @@
 import { Code2, Database, Users, Award } from "lucide-react";
 import { SectionHeader } from "./About";
+import { Reveal } from "./Reveal";
 
 const groups = [
   {
@@ -31,13 +32,16 @@ export function Skills() {
   return (
     <section id="skills" className="border-b border-border/60 bg-muted/30">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
-        <SectionHeader eyebrow="Skills" title="Capabilities & certifications" />
+        <Reveal>
+          <SectionHeader eyebrow="Skills" title="Capabilities & certifications" />
+        </Reveal>
 
         <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {groups.map((g) => (
-            <div
+          {groups.map((g, i) => (
+            <Reveal
               key={g.title}
-              className="rounded-2xl border border-border bg-card p-6 shadow-sm"
+              delay={i * 100}
+              className="rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
@@ -55,11 +59,11 @@ export function Skills() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
           ))}
         </div>
 
-        <div className="mt-6 flex items-start gap-4 rounded-2xl border border-accent/30 bg-accent/5 p-6">
+        <Reveal delay={300} className="mt-6 flex items-start gap-4 rounded-2xl border border-accent/30 bg-accent/5 p-6">
           <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent text-accent-foreground">
             <Award className="h-5 w-5" />
           </div>
@@ -74,7 +78,7 @@ export function Skills() {
               Issued by VSGA — Vocational School Graduate Academy.
             </p>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

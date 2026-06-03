@@ -8,17 +8,21 @@ export function Projects() {
   return (
     <section id="projects" className="border-b border-border/60">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
-        <SectionHeader eyebrow="Work" title="Featured projects" />
-        <p className="mt-4 max-w-2xl text-sm text-muted-foreground">
-          A selection of academic and professional work spanning web
-          development, data management, and digital administration.
-        </p>
+        <Reveal>
+          <SectionHeader eyebrow="Work" title="Featured projects" />
+          <p className="mt-4 max-w-2xl text-sm text-muted-foreground">
+            A selection of academic and professional work spanning web
+            development, data management, and digital administration.
+          </p>
+        </Reveal>
 
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p) => (
-            <article
+          {projects.map((p, i) => (
+            <Reveal
+              as="article"
               key={p.id}
-              className="group flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-md"
+              delay={i * 100}
+              className="group flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                 <FolderGit2 className="h-4 w-4" />
@@ -45,9 +49,10 @@ export function Projects() {
                 View details
                 <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
               </Link>
-            </article>
+            </Reveal>
           ))}
         </div>
+
 
         <div className="mt-8">
           <Link

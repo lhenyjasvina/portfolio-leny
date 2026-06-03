@@ -3,6 +3,7 @@ import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { SectionHeader } from "./About";
+import { Reveal } from "./Reveal";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
