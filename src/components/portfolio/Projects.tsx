@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, FolderGit2 } from "lucide-react";
 import { SectionHeader } from "./About";
+import { Reveal } from "./Reveal";
 import { projects } from "./projects-data";
 
 export function Projects() {

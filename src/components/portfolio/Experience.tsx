@@ -1,5 +1,6 @@
 import { Briefcase } from "lucide-react";
 import { SectionHeader } from "./About";
+import { Reveal } from "./Reveal";
 
 const jobs = [
   {
@@ -28,15 +29,17 @@ export function Experience() {
   return (
     <section id="experience" className="border-b border-border/60">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
-        <SectionHeader eyebrow="Experience" title="Where I've worked" />
+        <Reveal>
+          <SectionHeader eyebrow="Experience" title="Where I've worked" />
+        </Reveal>
 
         <ol className="mt-12 space-y-8 border-l border-border pl-6 sm:pl-8">
-          {jobs.map((job) => (
-            <li key={job.role} className="relative">
+          {jobs.map((job, i) => (
+            <Reveal as="li" key={job.role} delay={i * 120} className="relative">
               <span className="absolute -left-[34px] flex h-6 w-6 items-center justify-center rounded-full border border-border bg-background sm:-left-[42px]">
                 <Briefcase className="h-3 w-3 text-accent" />
               </span>
-              <div className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-7">
+              <div className="rounded-2xl border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-md sm:p-7">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                   <h3 className="text-xl font-semibold text-primary">{job.role}</h3>
                   <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
@@ -53,7 +56,7 @@ export function Experience() {
                   ))}
                 </ul>
               </div>
-            </li>
+            </Reveal>
           ))}
         </ol>
       </div>
