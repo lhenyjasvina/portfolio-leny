@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, CheckCircle2, Sparkles } from "lucide-react";
 import { Nav } from "@/components/portfolio/Nav";
 import { Footer } from "@/components/portfolio/Footer";
-import { getProject, projects } from "@/components/portfolio/projects-data";
+import { getProject, projects, type Project } from "@/components/portfolio/projects-data";
 
 export const Route = createFileRoute("/projects/$projectId")({
   loader: ({ params }) => {
@@ -58,7 +58,7 @@ export const Route = createFileRoute("/projects/$projectId")({
 });
 
 function ProjectDetail() {
-  const { project } = Route.useLoaderData();
+  const { project } = Route.useLoaderData() as { project: Project };
   const others = projects.filter((p) => p.id !== project.id).slice(0, 2);
 
   return (
