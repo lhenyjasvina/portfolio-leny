@@ -112,8 +112,7 @@
   color: var(--color-foreground);
   outline: none;
   transition: border-color 150ms, box-shadow 150ms;
-}
-@utility input-base {
+
   &:focus {
     border-color: var(--color-ring);
     box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-ring) 25%, transparent);
