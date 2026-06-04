@@ -9,6 +9,10 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 export default defineConfig({
   nitro: {
     preset: "vercel",
+    output: {
+      publicDir: "dist/static",
+      serverDir: "dist/functions/__server.func",
+    },
   },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
