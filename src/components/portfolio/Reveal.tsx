@@ -6,13 +6,7 @@ interface RevealProps extends HTMLAttributes<HTMLDivElement> {
   as?: "div" | "section" | "article" | "li";
 }
 
-export function Reveal({
-  children,
-  delay = 0,
-  className = "",
-  style,
-  ...rest
-}: RevealProps) {
+export function Reveal({ children, delay = 0, className = "", style, ...rest }: RevealProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
 
@@ -32,7 +26,7 @@ export function Reveal({
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
     );
     obs.observe(node);
     return () => obs.disconnect();

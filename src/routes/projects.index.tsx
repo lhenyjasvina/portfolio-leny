@@ -7,17 +7,17 @@ import { projects } from "@/components/portfolio/projects-data";
 export const Route = createFileRoute("/projects/")({
   head: () => ({
     meta: [
-      { title: "Projects — Leny Jasvina Wanda" },
+      { title: "Proyek — Leny Jasvina Wanda" },
       {
         name: "description",
         content:
-          "Featured projects by Leny Jasvina Wanda — web development, data management, and digital financial administration.",
+          "Proyek unggulan Leny Jasvina Wanda — pengembangan web, manajemen data, dan administrasi keuangan digital.",
       },
-      { property: "og:title", content: "Projects — Leny Jasvina Wanda" },
+      { property: "og:title", content: "Proyek — Leny Jasvina Wanda" },
       {
         property: "og:description",
         content:
-          "Selected academic and professional work, including the Location-Based Attendance thesis application.",
+          "Karya akademik dan profesional pilihan, termasuk aplikasi absensi berbasis lokasi dari skripsi.",
       },
     ],
   }),
@@ -34,16 +34,14 @@ function ProjectsIndex() {
           className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-primary"
         >
           <ArrowLeft className="h-3.5 w-3.5" />
-          Back to home
+          Kembali ke beranda
         </Link>
 
         <div className="mt-8 max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-            Work
-          </p>
-          <h1 className="mt-3 text-4xl text-primary sm:text-5xl">All projects</h1>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Karya</p>
+          <h1 className="mt-3 text-4xl text-primary sm:text-5xl">Semua Proyek</h1>
           <p className="mt-4 text-sm text-muted-foreground">
-            A complete list of academic, internship, and professional work.
+            Daftar lengkap karya akademik, magang, dan profesional.
           </p>
         </div>
 
@@ -56,16 +54,14 @@ function ProjectsIndex() {
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                 <FolderGit2 className="h-4 w-4" />
               </div>
-              <h2 className="mt-4 text-lg font-semibold text-primary">
-                {p.title}
-              </h2>
+              <h2 className="mt-4 text-lg font-semibold text-primary">{p.title}</h2>
               <p className="mt-2 text-sm text-muted-foreground">{p.tagline}</p>
               <Link
                 to="/projects/$projectId"
                 params={{ projectId: p.id }}
                 className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-primary"
               >
-                View details
+                Lihat detail
                 <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </article>

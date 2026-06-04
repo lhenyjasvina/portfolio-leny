@@ -11,17 +11,17 @@ import { Footer } from "@/components/portfolio/Footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Leny Jasvina Wanda — Informatics Engineering Graduate" },
+      { title: "Leny Jasvina Wanda — Lulusan Teknik Informatika" },
       {
         name: "description",
         content:
-          "Portfolio of Leny Jasvina Wanda — data management, digital financial administration (Mass Payment), and IT support specialist based in Pinrang.",
+          "Portofolio Leny Jasvina Wanda — spesialis manajemen data, administrasi keuangan digital (Pembayaran Massal), dan dukungan TI yang berbasis di Pinrang.",
       },
-      { property: "og:title", content: "Leny Jasvina Wanda — Portfolio" },
+      { property: "og:title", content: "Leny Jasvina Wanda — Portofolio" },
       {
         property: "og:description",
         content:
-          "Informatics Engineering graduate skilled in operational data management, Mass Payment, IT support, and geolocation-based technology.",
+          "Lulusan Teknik Informatika yang mahir dalam manajemen data operasional, Pembayaran Massal, dukungan TI, dan teknologi berbasis geolokasi.",
       },
     ],
   }),

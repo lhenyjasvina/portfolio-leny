@@ -9,10 +9,10 @@ export function Projects() {
     <section id="projects" className="border-b border-border/60">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
         <Reveal>
-          <SectionHeader eyebrow="Work" title="Featured projects" />
+          <SectionHeader eyebrow="Karya" title="Proyek Unggulan" />
           <p className="mt-4 max-w-2xl text-sm text-muted-foreground">
-            A selection of academic and professional work spanning web
-            development, data management, and digital administration.
+            Pilihan karya akademik dan profesional yang mencakup pengembangan web, manajemen data,
+            dan administrasi digital.
           </p>
         </Reveal>
 
@@ -27,9 +27,7 @@ export function Projects() {
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                 <FolderGit2 className="h-4 w-4" />
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-primary">
-                {p.title}
-              </h3>
+              <h3 className="mt-4 text-lg font-semibold text-primary">{p.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{p.tagline}</p>
               <ul className="mt-4 flex flex-wrap gap-1.5">
                 {p.tags.slice(0, 4).map((t) => (
@@ -46,20 +44,19 @@ export function Projects() {
                 params={{ projectId: p.id }}
                 className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-primary"
               >
-                View details
+                Lihat detail
                 <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </Reveal>
           ))}
         </div>
 
-
         <div className="mt-8">
           <Link
             to="/projects"
             className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
-            See all projects
+            Lihat semua proyek
             <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>

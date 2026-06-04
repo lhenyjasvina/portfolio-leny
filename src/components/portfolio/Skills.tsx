@@ -1,30 +1,30 @@
-import { Code2, Database, Users, Award } from "lucide-react";
+import { Code2, Database, Users, Award, Languages } from "lucide-react";
 import { SectionHeader } from "./About";
 import { Reveal } from "./Reveal";
 
 const groups = [
   {
     icon: Code2,
-    title: "Tech & Web",
-    items: ["HTML", "CSS", "JavaScript", "PHP", "Geolocation Implementation"],
+    title: "Dasar Pemrograman Web",
+    items: ["HTML", "CSS", "JavaScript", "PHP"],
   },
   {
     icon: Database,
-    title: "Data & Office",
+    title: "Data & Perkantoran",
     items: [
-      "Microsoft Office",
-      "Advanced Excel (Data Analysis)",
-      "Operational Data Management",
+      "Microsoft Office (Word, Excel, PowerPoint)",
+      "Microsoft Excel (Pengolahan & Analisis Data)",
     ],
   },
   {
     icon: Users,
-    title: "Soft Skills",
-    items: [
-      "Public Service",
-      "Financial Administration",
-      "Analytical Problem Solving",
-    ],
+    title: "Pelayanan & Analisis",
+    items: ["Pelayanan Publik & Administrasi", "Problem Solving & Analisis"],
+  },
+  {
+    icon: Languages,
+    title: "Bahasa",
+    items: ["Indonesia — Fasih", "Inggris — Basic"],
   },
 ];
 
@@ -33,10 +33,10 @@ export function Skills() {
     <section id="skills" className="border-b border-border/60 bg-muted/30">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
         <Reveal>
-          <SectionHeader eyebrow="Skills" title="Capabilities & certifications" />
+          <SectionHeader eyebrow="Keahlian" title="Kemampuan & Sertifikasi" />
         </Reveal>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {groups.map((g, i) => (
             <Reveal
               key={g.title}
@@ -63,19 +63,18 @@ export function Skills() {
           ))}
         </div>
 
-        <Reveal delay={300} className="mt-6 flex items-start gap-4 rounded-2xl border border-accent/30 bg-accent/5 p-6">
+        <Reveal
+          delay={300}
+          className="mt-6 flex items-start gap-4 rounded-2xl border border-accent/30 bg-accent/5 p-6"
+        >
           <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-accent text-accent-foreground">
             <Award className="h-5 w-5" />
           </div>
           <div>
-            <p className="text-xs font-medium uppercase tracking-wider text-accent">
-              Certification
-            </p>
-            <h3 className="mt-1 text-lg font-semibold text-primary">
-              Operator Komputer Madya
-            </h3>
+            <p className="text-xs font-medium uppercase tracking-wider text-accent">Sertifikasi</p>
+            <h3 className="mt-1 text-lg font-semibold text-primary">Operator Komputer Madya</h3>
             <p className="mt-1 text-sm text-muted-foreground">
-              Issued by VSGA — Vocational School Graduate Academy.
+              Diterbitkan oleh VSGA — Vocational School Graduate Academy.
             </p>
           </div>
         </Reveal>

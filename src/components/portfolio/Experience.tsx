@@ -6,21 +6,22 @@ const jobs = [
   {
     role: "Operator Bendahara",
     org: "Puskesmas Suppa",
-    period: "Mar 2025 — Present",
+    period: "Mar 2025 — Sekarang",
     points: [
-      "Manage operational financial data and digital disbursement using the Mass Payment system.",
-      "Prepare and reconcile financial reports including BKU (Buku Kas Umum) and Budget Realization.",
-      "Coordinate with internal staff to ensure accurate, on-time payment processing.",
+      "Mengelola administrasi keuangan, termasuk pencatatan dan pengolahan transaksi menggunakan sistem Pembayaran Massal.",
+      "Menyusun laporan keuangan bulanan dan tahunan secara akurat dan tepat waktu.",
+      "Menyiapkan Buku Kas Umum (BKU) serta Laporan Realisasi Anggaran sesuai dengan standar yang berlaku.",
+      "Memastikan ketelitian dan kesesuaian data keuangan melalui proses verifikasi dan pencatatan yang sistematis.",
     ],
   },
   {
-    role: "Administrative Intern",
+    role: "Magang",
     org: "Kantor Kelurahan Galung Maloang",
-    period: "Sep 2023 — Oct 2023",
+    period: "Sep 2023 — Okt 2023",
     points: [
-      "Supported public service administration and resident document processing.",
-      "Performed accurate data entry and maintained structured digital records.",
-      "Assisted with organizing and archiving official correspondence.",
+      "Melayani masyarakat dalam pengurusan berbagai dokumen administrasi kependudukan.",
+      "Mengelola penginputan dan pencatatan data administrasi masyarakat secara rapi dan akurat.",
+      "Mendukung kelancaran pelayanan publik melalui pengecekan berkas, pengarahan masyarakat, dan koordinasi administrasi.",
     ],
   },
 ];
@@ -30,7 +31,7 @@ export function Experience() {
     <section id="experience" className="border-b border-border/60">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
         <Reveal>
-          <SectionHeader eyebrow="Experience" title="Where I've worked" />
+          <SectionHeader eyebrow="Pengalaman" title="Tempat Saya Bekerja" />
         </Reveal>
 
         <ol className="mt-12 space-y-8 border-l border-border pl-6 sm:pl-8">

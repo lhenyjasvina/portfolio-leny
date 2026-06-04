@@ -6,9 +6,9 @@ import { SectionHeader } from "./About";
 import { Reveal } from "./Reveal";
 
 const schema = z.object({
-  name: z.string().trim().min(1, "Name is required").max(100),
-  email: z.string().trim().email("Invalid email").max(255),
-  message: z.string().trim().min(5, "Message is too short").max(1000),
+  name: z.string().trim().min(1, "Nama wajib diisi").max(100),
+  email: z.string().trim().email("Email tidak valid").max(255),
+  message: z.string().trim().min(5, "Pesan terlalu pendek").max(1000),
 });
 
 export function Contact() {
@@ -38,8 +38,9 @@ export function Contact() {
     // Client-only acknowledgement
     await new Promise((r) => setTimeout(r, 500));
     setSubmitting(false);
-    toast.success("Message ready to send", {
-      description: "Thanks! For now, please also email lhenyjasvinaw0907@gmail.com.",
+    toast.success("Pesan siap dikirim", {
+      description:
+        "Terima kasih! Untuk saat ini, silakan kirim email ke lhenyjasvinaw0907@gmail.com.",
     });
     form.reset();
   };
@@ -48,14 +49,14 @@ export function Contact() {
     <section id="contact" className="border-b border-border/60">
       <div className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
         <Reveal>
-          <SectionHeader eyebrow="Contact" title="Let's get in touch" />
+          <SectionHeader eyebrow="Kontak" title="Mari Terhubung" />
         </Reveal>
 
         <div className="mt-12 grid gap-10 md:grid-cols-[1fr_1.3fr]">
           <Reveal delay={100} className="space-y-4">
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Open to roles in data management, financial administration, and IT
-              support. Feel free to reach out via any channel below.
+              Terbuka untuk peran di bidang manajemen data, administrasi keuangan, dan dukungan TI.
+              Silakan hubungi saya melalui salah satu saluran di bawah ini.
             </p>
             <ContactItem
               icon={Mail}
@@ -65,61 +66,61 @@ export function Contact() {
             />
             <ContactItem
               icon={Phone}
-              label="Phone"
+              label="Telepon"
               value="+62 852 9036 1510"
               href="tel:+6285290361510"
             />
-            <ContactItem icon={MapPin} label="Location" value="Urung, Pinrang" />
+            <ContactItem icon={MapPin} label="Lokasi" value="Urung, Pinrang" />
           </Reveal>
 
           <Reveal delay={200}>
-          <form
-            onSubmit={onSubmit}
-            noValidate
-            className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8"
-          >
-            <div className="grid gap-5 sm:grid-cols-2">
-              <Field label="Name" name="name" error={errors.name}>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  maxLength={100}
-                  className="input-base"
-                  placeholder="Your name"
-                />
-              </Field>
-              <Field label="Email" name="email" error={errors.email}>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  maxLength={255}
-                  className="input-base"
-                  placeholder="you@example.com"
-                />
-              </Field>
-            </div>
-            <div className="mt-5">
-              <Field label="Message" name="message" error={errors.message}>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  maxLength={1000}
-                  className="input-base resize-y"
-                  placeholder="How can I help?"
-                />
-              </Field>
-            </div>
-            <button
-              type="submit"
-              disabled={submitting}
-              className="mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-60"
+            <form
+              onSubmit={onSubmit}
+              noValidate
+              className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8"
             >
-              {submitting ? "Sending..." : "Send message"} <Send className="h-4 w-4" />
-            </button>
-          </form>
+              <div className="grid gap-5 sm:grid-cols-2">
+                <Field label="Nama" name="name" error={errors.name}>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    maxLength={100}
+                    className="input-base"
+                    placeholder="Nama Anda"
+                  />
+                </Field>
+                <Field label="Email" name="email" error={errors.email}>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    maxLength={255}
+                    className="input-base"
+                    placeholder="anda@example.com"
+                  />
+                </Field>
+              </div>
+              <div className="mt-5">
+                <Field label="Pesan" name="message" error={errors.message}>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    maxLength={1000}
+                    className="input-base resize-y"
+                    placeholder="Apa yang bisa saya bantu?"
+                  />
+                </Field>
+              </div>
+              <button
+                type="submit"
+                disabled={submitting}
+                className="mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-60"
+              >
+                {submitting ? "Mengirim..." : "Kirim pesan"} <Send className="h-4 w-4" />
+              </button>
+            </form>
           </Reveal>
         </div>
       </div>
@@ -171,9 +172,7 @@ function Field({
         {label}
       </label>
       {children}
-      {error ? (
-        <p className="mt-1 text-xs text-destructive">{error}</p>
-      ) : null}
+      {error ? <p className="mt-1 text-xs text-destructive">{error}</p> : null}
     </div>
   );
 }

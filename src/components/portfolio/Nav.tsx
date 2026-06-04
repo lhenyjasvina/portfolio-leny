@@ -1,9 +1,9 @@
 const links = [
-  { href: "/#about", label: "About" },
-  { href: "/#experience", label: "Experience" },
-  { href: "/#projects", label: "Projects" },
-  { href: "/#skills", label: "Skills" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/#about", label: "Tentang" },
+  { href: "/#experience", label: "Pengalaman" },
+  { href: "/#projects", label: "Proyek" },
+  { href: "/#skills", label: "Keahlian" },
+  { href: "/#contact", label: "Kontak" },
 ];
 
 export function Nav() {
@@ -28,7 +28,7 @@ export function Nav() {
           href="#contact"
           className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
         >
-          Get in touch
+          Hubungi Saya
         </a>
       </div>
     </header>
